@@ -7,14 +7,14 @@ const deleteTasksBtn = document.querySelector('#delete-tasks');
 form.addEventListener('submit', addTask);
 taskList.addEventListener('click', deleteTask);
 deleteTasksBtn.addEventListener('click', deleteTasks);
-document.addEventListener(type: "DOMContentLoaded", getTasksFromLocalStorage);
+document.addEventListener('DOMContentLoaded', getTasksFromLocalStorage);
 
 function getTasksFromLocalStorage(){
     let tasks;
-    if(localStorage.getItem(key:"tasks") === null {
+    if(localStorage.getItem('tasks') === null){
         tasks = [];
     } else {
-        tasks = JSON.parse(localStorage.getItem(key:"tasks"));
+        tasks = JSON.parse(localStorage.getItem('tasks'));
     }
     tasks.forEach(function (tasksElement){
         // create <li> element
@@ -38,10 +38,8 @@ function getTasksFromLocalStorage(){
         // add li to ul
         const ul = document.querySelector('.collection');
         ul.appendChild(li);
-
     });
 }
-
 
 function deleteTasks(){
     // event.target.previousElementSibling.innerHTML = '';
@@ -52,20 +50,19 @@ function deleteTasks(){
     deleteAllTaskFromLocalStorage();
 }
 
-function deleteAllTaskFromLocalStorage {
-    if(localStorage.getItem(key:"tasks") === null {
+function deleteAllTaskFromLocalStorage(){
+    if(localStorage.getItem('tasks') === null){
         let tasks = [];
-        localStorage.setItem("tasks", JSON.stringify(tasks));
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-
-    localStorage.removeItem(key:"tasks")
+    localStorage.removeItem('tasks');
 }
 
 function deleteTask(event){
     if(event.target.textContent === 'X'){
         if(confirm('Do you want to delete this task?')){
             event.target.parentElement.remove();
-            task.event.target.parentElement.firstChild.textContent;
+            task = event.target.parentElement.firstChild.textContent;
             deleteTaskFromLocalStorage(task);
         }
     }
@@ -73,19 +70,18 @@ function deleteTask(event){
 
 function deleteTaskFromLocalStorage(task){
     let tasks;
-    if(localStorage.getItem(key:"tasks") === null {
+    if(localStorage.getItem('tasks') === null){
         tasks = [];
     } else {
-        tasks = JSON.parse(localStorage.getItem(key:"tasks"));
+        tasks = JSON.parse(localStorage.getItem('tasks'));
     }
-    tasks.forEach(function (tasksElement, index: number){
-        if(tasksElement === task) {
+    tasks.forEach(function (tasksElement, index){
+        if(tasksElement === task){
             tasks.splice(index, 1);
         }
     });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
-
 
 function addTask(event){
     // get form input data
@@ -118,13 +114,13 @@ function addTask(event){
     event.preventDefault();
 }
 
-function addTaskToLocalStorage(task) {
+function addTaskToLocalStorage(task){
     let tasks;
-    if(localStorage.getItem(key:"tasks") === null {
+    if(localStorage.getItem('tasks') === null){
         tasks = [];
-        } else {
-        tasks = JSON.parse(localStorage.getItem(key:"tasks"));
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
     }
     tasks.push(task);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
