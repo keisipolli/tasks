@@ -14,6 +14,16 @@ function deleteTasks(){
     while (taskList.firstChild) {
         taskList.removeChild(taskList.firstChild);
     }
+    deleteAllTaskFromLocalStorage();
+}
+
+function deleteAllTaskFromLocalStorage {
+    if(localStorage.getItem(key:"tasks") === null {
+        let tasks = [];
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    localStorage.removeItem(key:"tasks")
 }
 
 function deleteTask(event){
