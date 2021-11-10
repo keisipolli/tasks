@@ -20,9 +20,27 @@ function deleteTask(event){
     if(event.target.textContent === 'X'){
         if(confirm('Do you want to delete this task?')){
             event.target.parentElement.remove();
+            task.event.target.parentElement.firstChild.textContent;
+            deleteTaskFromLocalStorage(task);
         }
     }
 }
+
+function deleteTaskFromLocalStorage(task){
+    let tasks;
+    if(localStorage.getItem(key:"tasks") === null {
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem(key:"tasks"));
+    }
+    tasks.forEach(function (tasksElement, index: number){
+        if(tasksElement === task) {
+            tasks.splice(index, 1);
+        }
+    });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
 
 function addTask(event){
     // get form input data
@@ -62,8 +80,6 @@ function addTaskToLocalStorage(task) {
         } else {
         tasks = JSON.parse(localStorage.getItem(key:"tasks"));
     }
-    console.log(tasks);
     tasks.push(task);
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    console.log(tasks);
 }
