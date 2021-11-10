@@ -49,6 +49,21 @@ function addTask(event){
     // add li to ul
     const ul = document.querySelector('.collection');
     ul.appendChild(li);
+    // save task
+    addTaskToLocalStorage(task);
     taskInput.value = '';
     event.preventDefault();
+}
+
+function addTaskToLocalStorage(task) {
+    let tasks;
+    if(localStorage.getItem(key:"tasks") === null {
+        tasks = [];
+        } else {
+        tasks = JSON.parse(localStorage.getItem(key:"tasks"));
+    }
+    console.log(tasks);
+    tasks.push(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    console.log(tasks);
 }
