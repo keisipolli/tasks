@@ -51,6 +51,7 @@ function deleteTasks(){
 }
 
 function deleteAllTaskFromLocalStorage(){
+    // localStorage.clear();
     if(localStorage.getItem('tasks') === null){
         let tasks = [];
         localStorage.setItem('tasks', JSON.stringify(tasks));
